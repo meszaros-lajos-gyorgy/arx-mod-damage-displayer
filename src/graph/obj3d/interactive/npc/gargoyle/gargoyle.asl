@@ -1,0 +1,16 @@
+ON INIT {
+ COLLISION OFF
+ PHYSICAL OFF
+ LOADANIM WAIT "gargoyle_wait"
+ BEHAVIOR -a FRIENDLY
+SETTARGET PLAYER
+SET_NPC_STAT RESISTPOISON 200
+ACCEPT
+}
+
+ON HIT {
+  IF (^sender == "player") {
+    SENDEVENT DEALT_DAMAGE player "~^&param1~ ~^me~"
+  }
+  ACCEPT
+}
